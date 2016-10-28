@@ -4,11 +4,19 @@
  - Tim Combs
 
 ### Project Functionality
-  - This is a Code Fellows Lab Assignment to create an http server that uses the file system for persistent storage and retrieval - faux databasde functionality
+  - This is a Code Fellows Lab Assignment to create an http server that uses the file system for persistent storage and retrieval - it is a faux database for notes
   - The http server runs on localhost:8080
-  - Server will serve to browser different responses depending on the path &/or method selected
-  - The user will be able to read the directory of the notes
-  - different responses will be displayed to the browser and/or logged to the console depending the path, querystring &/or method selected
+
+  - User will be able to read the directory of the notes, read specific notes, create new notes, update existing notes and delete notes dependent on specific path and request method
+  - The dataStore.js module implements the file system methods
+    - dataStore.retrieveDir implements GET requests for the /notes directory
+    - dataStore.retrieveFile implements GET requests for specific notes in the directory
+    - dataStore.stash implements POST requests for new specific notes for the directory
+    - dataStore.update implements PUT requests to overwrite existing specific notes in the directory
+    - dataStore.remove implments DELETE requests for existing specific notes in the directory
+  
+  - Different responses and errors will be written to the browser and/or logged to the console dependent on specific path &/or request method
+  - Notes are stored as JSON files
 
 ### How To Use Codebase
   - This module uses Node, npm and the following modules:
@@ -17,31 +25,36 @@
   - Make sure to run npm install from the directory root to install dependencies
   - Please refer to the package.json for more info
   
-  - To use this module, from the command line at the root of the directory type:
+  - A notes directory currently exists in the root of the project directory
+  - It includes two test json files that can be used for testing or deleted if wished, they do not affect the functionality of the app
+
+  - To use this module as it stands, from the command line at the root of the directory type:
     ```
     $ npm start
     ``` 
-  - Then open a browser window and navigate to the address localhost:8080/ 
+  - Then open a browser window and navigate to the address localhost:8080/
 
-  - Because pushing empty directory folders to be a repository is not allowed by Github, please create a notes directory in the root of the project directory
-    ```
-    $ mkdir notes
-    ``` 
+  - app is a back end app, so to implement functionality project should be "wired" to a front end using the methods in the dataStore object encapsulated in dataStore.js
+
+  - specific notes are JSON
+
+  - testing can be done using a browser for GET requests or an app like Postman [https://www.getpostman.com/] for the other request methods
+
 
 ### Use Cases
 
-  - navigating to localhost:8080/ displays 'pages served using node http'
+  - navigating to localhost:8080/ serves index.html to the browser, which displays 'Serving pages for you using node!'
 
-  - navigating to localhost:8080/hello displays 'hello world, you asked for the path: /hello' and console.logs 'Hello World!' using the figlet module
-  - navigating to localhost:8080/hello?needs=time displays 'Hello, the time is: <current_time>'
-  - navigating to localhost:8080/hello?needs=date displays 'Hello, the date is: <current_date>'
+  - navigating to localhost:8080/notes displays the directory list for the /notes directory
+  - navigating to localhost:8080/notes/<specific_note>.json displays the file
 
-  - navigating to localhost:8080/goodbye displays 'goodbye world, you asked for the path: /goodbye' and console.logs 'Goodbye World!' using the figlet module
+  - sending a POST request to localhost:8080/notes/<specific_note>.json with the note in JSON in the body writes the note into the file directory and displays 'Your file has been written'
 
-  - navigating to localhost:8080/french-dip displays 'au jus!!!, you asked for the path: /french-dip' and console.logs 'au jus!!!' using the figlet module
-  - making a POST request to localhost:8080/french-dip with text sent in the body as 'raw' data echoes the body as a response back to the browser using the figlet module
+  - sending a PUT request to localhost:8080/notes/<specific_note>.json with the note in JSON in the body overwrites the note in the file directory if it exists, creates it if it doesn't exist and displays 'Your file has been updated'
 
-  - navigating to other localhost:8080/<something_else> displays '404 not found', responds with a 404 status code and console.logs 'there is no path at /<something_else> please check your map'
+  - sending a DELETE request to localhost:8080/notes/<specific_note>.json deletes the note from the file directory and displays 'Your file has been deleted'
+
+  - navigating to other localhost:8080/<something_else> console.logs a 404 status code and displays 'there is no path at /<something_else> please check your map'
   
 
 ### Code Shape
