@@ -4,14 +4,15 @@
  - Tim Combs
 
 ### Project Functionality
-  - This is a Code Fellows Lab Assignment to create a simple http server
+  - This is a Code Fellows Lab Assignment to create an http server that uses the file system for persistent storage and retrieval - faux databasde functionality
   - The http server runs on localhost:8080
-  - Server will serve to browser different responses depending on the path, querystring &/or method selected
+  - Server will serve to browser different responses depending on the path &/or method selected
+  - The user will be able to read the directory of the notes
   - different responses will be displayed to the browser and/or logged to the console depending the path, querystring &/or method selected
 
 ### How To Use Codebase
   - This module uses Node, npm and the following modules:
-    - net module from node, sander
+    - net module from node, sander, http, url
     - eslint, mocha, chai for testing
   - Make sure to run npm install from the directory root to install dependencies
   - Please refer to the package.json for more info
@@ -20,7 +21,12 @@
     ```
     $ npm start
     ``` 
-  - Then open a browser window and navigate to the address localhost:8080/  
+  - Then open a browser window and navigate to the address localhost:8080/ 
+
+  - Because pushing empty directory folders to be a repository is not allowed by Github, please create a notes directory in the root of the project directory
+    ```
+    $ mkdir notes
+    ``` 
 
 ### Use Cases
 
