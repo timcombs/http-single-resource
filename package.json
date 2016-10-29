@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "test": "mocha",
     "test:watch": "npm run test -- -w",
-    "start": "nodemon lib/server.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
