@@ -1,7 +1,18 @@
 # Change Log
 All changes to this project will be documented in this CHANGELOG
 
-Format is based on Keep a Changelong (http://keepachangelog.com/) and the project adheres to Semantic Versioning (http://semver.org).
+Format is based on Keep a Changelog (http://keepachangelog.com/) and the project adheres to Semantic Versioning (http://semver.org).
+
+## [1.2.0] - 2016-10-29
+### Changed
+- response handler split into separate file
+- replaced anonymous functions with fat arrow functions in dataStore.js
+- update README.md
+
+### Added
+- resHandler.js
+- readBody.js 
+
 
 ## [1.1.0] - 2016-10-28
 ### Changed

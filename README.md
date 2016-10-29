@@ -7,6 +7,11 @@
   - This is a Code Fellows Lab Assignment to create an http server that uses the file system for persistent storage and retrieval - it is a faux database for notes
   - The http server runs on localhost:8080
 
+  - server.js acts as a server & router
+  - dataStore.js accesses the the file system
+  - readBody.js asynchronously builds the body from the chunked database
+  - resHandler.js writes the response and errors back to the user 
+
   - User will be able to read the directory of the notes, read specific notes, create new notes, update existing notes and delete notes dependent on specific path and request method
   - The dataStore.js module implements the file system methods
     - dataStore.retrieveDir implements GET requests for the /notes directory
@@ -51,6 +56,8 @@
   - sending a POST request to localhost:8080/notes/<specific_note>.json with the note in JSON in the body writes the note into the file directory and displays 'Your file has been written'
 
   - sending a PUT request to localhost:8080/notes/<specific_note>.json with the note in JSON in the body overwrites the note in the file directory if it exists, creates it if it doesn't exist and displays 'Your file has been updated'
+
+  - NOTE: PUT & POST both overwrite files if they already exist
 
   - sending a DELETE request to localhost:8080/notes/<specific_note>.json deletes the note from the file directory and displays 'Your file has been deleted'
 

@@ -1,6 +1,6 @@
 {
   "name": "http-single-server",
-  "version": "1.0.0",
+  "version": "1.02.0",
   "description": "http single-server api",
   "main": "index.js",
   "directories": {
@@ -33,7 +33,6 @@
     "superagent": "^2.3.0"
   },
   "dependencies": {
-    "figlet": "^1.2.0",
     "sander": "^0.5.1"
   }
 }
