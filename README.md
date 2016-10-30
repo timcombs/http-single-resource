@@ -9,7 +9,7 @@
 
   - server.js acts as a server & router
   - dataStore.js accesses the the file system
-  - readBody.js asynchronously builds the body from the chunked database
+  - readBody.js asynchronously builds the requestbody from the chunked database
   - resHandler.js writes the response and errors back to the user 
 
   - User will be able to read the directory of the notes, read specific notes, create new notes, update existing notes and delete notes dependent on specific path and request method
@@ -31,7 +31,7 @@
   - Please refer to the package.json for more info
   
   - A notes directory currently exists in the root of the project directory
-  - It includes two test json files that can be used for testing or deleted if wished, they do not affect the functionality of the app
+  - The notes directory includes test1.json & test2.json files that must be in the notes directory when starting the tests, they do not affect the functionality of the app
 
   - To use this module as it stands, from the command line at the root of the directory type:
     ```
