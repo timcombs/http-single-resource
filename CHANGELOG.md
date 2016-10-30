@@ -3,6 +3,17 @@ All changes to this project will be documented in this CHANGELOG
 
 Format is based on Keep a Changelog (http://keepachangelog.com/) and the project adheres to Semantic Versioning (http://semver.org).
 
+## [1.2.2] - 2016-10-30
+### Changed
+- edit README.md to reflect testing and change in modules
+- system to parse pieces out of the path
+
+### Added
+- path module
+
+### Removed
+- url module
+
 
 ## [1.2.1] - 2016-10-30
 ### Changed

@@ -25,8 +25,8 @@
 
 ### How To Use Codebase
   - This module uses Node, npm and the following modules:
-    - net module from node, sander, http, url
-    - eslint, mocha, chai for testing
+    - net module from node, sander, http, path
+    - eslint, mocha, chai, chai-http for testing
   - Make sure to run npm install from the directory root to install dependencies
   - Please refer to the package.json for more info
   
@@ -36,7 +36,7 @@
     - They must be in the notes directory when starting the tests.
     - See the testing section for more details
 
-  - To use this module as it stands, from the command line at the root of the directory type:
+  - To use this module as it stands, from the command line at the root of the project directory type:
     ```
     $ npm start
     ``` 
@@ -69,24 +69,30 @@
 
 ### Testing
   - Set Up
+    - To run the test suite, from the command line at the root of the project directory type:
+      ```
+      $ mocha
+      ```
+    - you will see 2 unit tests & 7 E2E tests
+
     - As stated above, both test1.json & test2.json must be in /notes folder to run tests
     - Feel free to delete for normal usage
-    - test1.json
-      ```
-      {
-        "title": "test1.json",
-        "text": "Dinner is consistent, the chicken comes out golden every time"
-      }
-      ```
+    - If you need to remake the test files:
+      - test1.json
+        ```
+        {
+          "title": "test1.json",
+          "text": "Dinner is consistent, the chicken comes out golden every time"
+        }
+        ```
 
-    - test2.json
-      ```
-      {
-        "title": "test2.json",
-        "text": ""
-      }
-      ```
-
+      - test2.json
+        ```
+        {
+          "title": "test2.json",
+          "text": ""
+        }
+        ```
 
 ### Code Shape
   - This code has been vetted using Eslint and was reviewed by Code Fellows using Travis-CI
