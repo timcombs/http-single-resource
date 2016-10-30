@@ -1,34 +1,35 @@
 const server = require('../lib/server');
+const dataStore = require('../lib/dataStore');
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
 chai.use(chaiHttp);
 
-// //unit tests on the dataStore
-// describe('unit testing the dataStore module', () => {
-//   it('finds a directory', (done) => {
-//     chai.request(server);
-//   });
+//unit tests on the dataStore
+describe('unit testing the dataStore module', () => {
+  it('reads a directory', () => {
+    dataStore.retrieveDir('./notes')
+      .then((dirList) => {
+        expect(dirList).to.equal([ 'test1.json', 'test2.json' ]);
+      })
+      .catch((err) => {
+        return err;
+      });
+  });
 
-//   it('finds a file', (done) => {
-//     //expect
+  it('reads a file', ()=> {
+    dataStore.retrieveFile('./notes/test1.json')
+      .then((fileData) => {
+        expect(fileData).to.be.equal({ 'title': 'test1.json', 'text': 'Dinner is consistent, the chicken comes out golden every time' });
+      })
+      .catch((err) => {
+        return err;
+      });
+  });
+});
 
-//   });
-
-//   it('writes a file', (done) => {
-
-//   });
-
-//   it('overwrites a file', (done) => {
-
-//   });
-
-//   it('it deletes a file', (done) => {
-
-//   });
-// });
-
+//E2E testing the server
 describe('E2E testing the server', () => {
   it('returns status code = 200 on successful requests', () => {
     chai.request(server)
@@ -37,7 +38,7 @@ describe('E2E testing the server', () => {
       expect(res).to.have.status(200);
     })
     .catch((err) => {
-      throw err;
+      return err;
     });
   });
 
@@ -49,22 +50,22 @@ describe('E2E testing the server', () => {
         expect(res.text).to.be.equal('test1.json\ntest2.json\n');
       })
       .catch((err) => {
-        throw err;
+        return err;
       });
   });
 
   it('sends response to request for specific file', () => {
     chai.request(server)
-    .get('/notes/test1.json')
-    .then((res) => {
-      expect(res.text).to.equal('{\n  "title": "test1.json",\n  "text": "To a person, everyone wishes they had never went to the party"\n}');
-    })
-    .catch((err) => {
-      throw err;
-    });
+      .get('/notes/test1.json')
+      .then((res) => {
+        expect(res.text).to.equal('{\n  "title": "test1.json",\n  "text": "Dinner is consistent, the chicken comes out golden every time"\n}');
+      })
+      .catch((err) => {
+        return err;
+      });
   });
 
-  it('fails when navigating to an unknown path', () => {
+  it('fails whreturnn navigating to an unknown path', () => {
     chai.request(server)
       .get('/nowhere/fast.json')
       .then((res) => {
@@ -72,7 +73,7 @@ describe('E2E testing the server', () => {
         expect(res.text).to.be.equal('that was not a valid path please check your map');
       })
       .catch((err) => {
-        throw err;
+        return err;
       });
   });
 
@@ -83,7 +84,7 @@ describe('E2E testing the server', () => {
         expect(res);
       })
       .catch((err) => {
-        throw err;
+        return err;
       });
   });
 
@@ -94,7 +95,7 @@ describe('E2E testing the server', () => {
         expect(res);
       })
       .catch((err) => {
-        throw err;
+        return err;
       });
   });
 
@@ -105,9 +106,7 @@ describe('E2E testing the server', () => {
         expect(res);
       })
       .catch((err) => {
-        throw err;
+        return err;
       });
   });
-
-
 });

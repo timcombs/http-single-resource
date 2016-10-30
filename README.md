@@ -31,7 +31,10 @@
   - Please refer to the package.json for more info
   
   - A notes directory currently exists in the root of the project directory
-  - The notes directory includes test1.json & test2.json files that must be in the notes directory when starting the tests, they do not affect the functionality of the app
+  - The notes directory includes test1.json & test2.json files
+    - These files do not affect the functionality of the app
+    - They must be in the notes directory when starting the tests.
+    - See the testing section for more details
 
   - To use this module as it stands, from the command line at the root of the directory type:
     ```
@@ -63,6 +66,27 @@
 
   - navigating to other localhost:8080/<something_else> console.logs a 404 status code and displays 'there is no path at /<something_else> please check your map'
   
+
+### Testing
+  - Set Up
+    - As stated above, both test1.json & test2.json must be in /notes folder to run tests
+    - Feel free to delete for normal usage
+    - test1.json
+      ```
+      {
+        "title": "test1.json",
+        "text": "Dinner is consistent, the chicken comes out golden every time"
+      }
+      ```
+
+    - test2.json
+      ```
+      {
+        "title": "test2.json",
+        "text": ""
+      }
+      ```
+
 
 ### Code Shape
   - This code has been vetted using Eslint and was reviewed by Code Fellows using Travis-CI
