@@ -3,6 +3,17 @@ All changes to this project will be documented in this CHANGELOG
 
 Format is based on Keep a Changelog (http://keepachangelog.com/) and the project adheres to Semantic Versioning (http://semver.org).
 
+
+## [1.2.1] - 2016-10-30
+### Changed
+- README.md to reflect testing
+- now tests!
+
+### Added
+- 2 unit tests
+- 3 E2E tests
+
+
 ## [1.2.0] - 2016-10-29
 ### Changed
 - response handler split into separate file
