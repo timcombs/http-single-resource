@@ -5,11 +5,39 @@ const chaiHttp = require('chai-http');
 const expect = chai.expect;
 chai.use(chaiHttp);
 
-// //unit tests on the dataStore
-// describe('unit testing the dataStore module', () => {
-//   it('finds a directory', (done) => {
-//     chai.request(server);
-//   });
+//unit tests on the dataStore
+describe('unit testing the dataStore module', () => {
+  // it('finds a directory', (done) => {
+  //   chai.request(server)
+  //     .get
+  // });
+
+  it('writes the body of POST request to file system', ()=> {
+    chai.request(server)
+      .post('/notes/test3.json')
+      .set('Content-Type', 'application/json')
+      .send({ title: 'test3.json', text: 'Typing has its joys' })
+      .then((res) => {
+        expect(res.body).to.be.equal({ title: 'test3.json', text: 'Typing has its joys' });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  });
+
+  //it('reads the ')
+  
+  it('updates file by writing the body of a POST request', ()=> {
+    chai.request(server)
+      .put('/notes/test2.json')
+      .send({})
+      .then((res) => {
+        expect(res.body).to.be.equal();
+      })
+      .catch((err) => {
+        throw err;
+      });
+  });
 
 //   it('finds a file', (done) => {
 //     //expect
@@ -27,7 +55,7 @@ chai.use(chaiHttp);
 //   it('it deletes a file', (done) => {
 
 //   });
-// });
+});
 
 describe('E2E testing the server', () => {
   it('returns status code = 200 on successful requests', () => {
@@ -57,7 +85,7 @@ describe('E2E testing the server', () => {
     chai.request(server)
     .get('/notes/test1.json')
     .then((res) => {
-      expect(res.text).to.equal('{\n  "title": "test1.json",\n  "text": "To a person, everyone wishes they had never went to the party"\n}');
+      expect(res.text).to.equal('{\n  "title": "test1.json",\n  "text": "Dinner is consistent, the chicken comes out golden every time"\n}');
     })
     .catch((err) => {
       throw err;
