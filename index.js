@@ -1,5 +1,3 @@
-// const http = require('http');
-// const url = require('url');
 const server = require('./lib/server.js');
 
 const port = 8080;
