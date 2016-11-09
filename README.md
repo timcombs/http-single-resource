@@ -54,15 +54,15 @@
   - navigating to localhost:8080/ serves index.html to the browser, which displays 'Serving pages for you using node!'
 
   - navigating to localhost:8080/notes displays the directory list for the /notes directory
-  - navigating to localhost:8080/notes/<specific_note>.json displays the file
+  - navigating to localhost:8080/notes/<filename>.json displays the file
 
-  - sending a POST request to localhost:8080/notes/<specific_note>.json with the note in JSON in the body writes the note into the file directory and displays 'Your file has been written'
+  - sending a POST request to localhost:8080/notes/<filename>.json with the note in JSON in the body writes the note into the file directory and displays 'Your file has been written'
 
-  - sending a PUT request to localhost:8080/notes/<specific_note>.json with the note in JSON in the body overwrites the note in the file directory if it exists, creates it if it doesn't exist and displays 'Your file has been updated'
+  - sending a PUT request to localhost:8080/notes/<filename>.json with the note in JSON in the body overwrites the note in the file directory if it exists, creates it if it doesn't exist and displays 'Your file has been updated'
 
   - NOTE: PUT & POST both overwrite files if they already exist
 
-  - sending a DELETE request to localhost:8080/notes/<specific_note>.json deletes the note from the file directory and displays 'Your file has been deleted'
+  - sending a DELETE request to localhost:8080/notes/<filename>.json deletes the note from the file directory and displays 'Your file has been deleted'
 
   - navigating to other localhost:8080/<something_else> console.logs a 404 status code and displays 'there is no path at /<something_else> please check your map'
   
@@ -70,7 +70,8 @@
 ### Testing
   - Set Up
     - As stated above, both test1.json & test2.json must be in /notes folder to run tests
-    - Feel free to delete for normal usage
+    - Feel free to delete tests for normal usage
+    - To recreate the test files:
     - test1.json
       ```
       {
@@ -85,6 +86,10 @@
         "title": "test2.json",
         "text": ""
       }
+      ```
+  - To run the test suite, from the command line at the root of the project directory type:
+      ```
+      $ npm test
       ```
 
 

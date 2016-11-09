@@ -46,7 +46,6 @@ describe('E2E testing the server', () => {
     chai.request(server)
       .get('/notes')
       .then((res) => {
-        //is this correct? if so, why does getting the text back tell me the server found the correct path?
         expect(res.text).to.be.equal('test1.json\ntest2.json\n');
       })
       .catch((err) => {
@@ -65,7 +64,7 @@ describe('E2E testing the server', () => {
       });
   });
 
-  it('fails whreturnn navigating to an unknown path', () => {
+  it('fails when navigating to an unknown path', () => {
     chai.request(server)
       .get('/nowhere/fast.json')
       .then((res) => {
